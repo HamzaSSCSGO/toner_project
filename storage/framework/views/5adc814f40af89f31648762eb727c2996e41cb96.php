@@ -120,19 +120,12 @@
             <li class="text-center"> <a class="f-w-700" href="javascript:void(0)">See All     </a></li>
           </ul>
         </li>
-
-        
-        <form method="POST" action="<?php echo e(route('logout')); ?>">
-          <?php echo csrf_field(); ?>
-          <li class="onhover-dropdown p-0">
-            <button class="btn btn-primary-light"  type="button" ><i data-feather="log-out"></i>Log out</button>
-          </li>
-        </form>
-        
-        
+        <li class="onhover-dropdown p-0">
+          <button class="btn btn-primary-light" type="button"><i data-feather="log-out"></i>Log out</button>
+        </li>
       </ul>
     </div>
     <div class="d-lg-none mobile-toggle pull-right w-auto"><i data-feather="more-horizontal"></i></div>
   </div>
 </div>
-<?php /**PATH C:\xampp\htdocs\1projet3wa\laravel\vihoadmin-10\viho_html_laravel\Viho-Laravel-8\theme\resources\views/layouts/admin/partials/header.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp\htdocs\1projet3wa\laravel\vihoadmin-10\viho_html_laravel\Viho-Laravel-8\theme\resources\views/layouts/default-layout/partials/header.blade.php ENDPATH**/ ?>

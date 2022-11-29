@@ -160,6 +160,28 @@
 <?php endif; ?>
             </div>
 
+            <!-- Select Role -->
+            <div class="mt-4">
+                <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+<?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.label','data' => ['for' => 'role_id','value' => __('Select Role')]]); ?>
+<?php $component->withName('label'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes(['for' => 'role_id','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(__('Select Role'))]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
+<?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>
+<?php unset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4); ?>
+<?php endif; ?>
+
+                <select name="role_id" id="role">
+                    <option value="superadministrator">Superadministrator</option>
+                    <option value="administrator">Administrator</option>
+                    <option value="user">User</option>
+                  </select>
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="<?php echo e(route('login')); ?>">
                     <?php echo e(__('Already registered?')); ?>

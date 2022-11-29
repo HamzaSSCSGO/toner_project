@@ -120,9 +120,21 @@
             <li class="text-center"> <a class="f-w-700" href="javascript:void(0)">See All     </a></li>
           </ul>
         </li>
-        <li class="onhover-dropdown p-0">
-          <button class="btn btn-primary-light" type="button"><i data-feather="log-out"></i>Log out</button>
-        </li>
+
+        {{-- <form method="POST" action="{{route('logout')}}">
+          @csrf
+          <li class="onhover-dropdown p-0">
+            <button class="btn btn-primary-light" href="{{route('logout')}}" type="button" ><i data-feather="log-out"></i>Log out</button>
+          </li>
+        </form> --}}
+        <form method="POST" action="{{route('logout')}}">
+          @csrf
+          <li class="onhover-dropdown p-0">
+            <button class="btn btn-primary-light" {{-- href="/logout" --}} type="button" {{-- href="{{route('logout')}}" --}}><i data-feather="log-out"></i>Log out</button>
+          </li>
+        </form>
+        
+        
       </ul>
     </div>
     <div class="d-lg-none mobile-toggle pull-right w-auto"><i data-feather="more-horizontal"></i></div>
