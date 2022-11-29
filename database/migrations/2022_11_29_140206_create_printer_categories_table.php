@@ -15,6 +15,7 @@ class CreatePrinterCategoriesTable extends Migration
     {
         Schema::create('printer_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('printer_category_name');
             $table->timestamps();
         });
     }

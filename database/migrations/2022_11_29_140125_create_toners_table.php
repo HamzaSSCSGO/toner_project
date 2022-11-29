@@ -15,6 +15,10 @@ class CreateTonersTable extends Migration
     {
         Schema::create('toners', function (Blueprint $table) {
             $table->id();
+            /* $table->integer('color_id'); */
+            $table->foreignId('color_id')->constrained('colors')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('toner_model_id')->constrained('toner_models')->onUpdate('cascade')->onDelete('cascade')  /* integer('toner_model_id') */;
+            $table->integer('quantity_left');
             $table->timestamps();
         });
     }

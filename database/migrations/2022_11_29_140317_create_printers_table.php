@@ -15,6 +15,12 @@ class CreatePrintersTable extends Migration
     {
         Schema::create('printers', function (Blueprint $table) {
             $table->id();
+            $table->integer('serial_number')/* ->unique() */;
+            $table->string('ip');
+            /* $table->integer('toner_consumption')->nullable(); */
+            $table->integer('printer_location_id');
+            $table->integer('printer_model_id');
+            $table->integer('printer_category_id');
             $table->timestamps();
         });
     }

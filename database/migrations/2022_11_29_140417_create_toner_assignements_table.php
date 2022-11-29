@@ -15,6 +15,10 @@ class CreateTonerAssignementsTable extends Migration
     {
         Schema::create('toner_assignements', function (Blueprint $table) {
             $table->id();
+            $table->integer('toner_id');
+            $table->integer('employee_id');
+            $table->integer('printer_id');
+            $table->integer('quantity_assigned');
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreatePrinterLocationsTable extends Migration
     {
         Schema::create('printer_locations', function (Blueprint $table) {
             $table->id();
+            $table->string('printer_location_name');
             $table->timestamps();
         });
     }

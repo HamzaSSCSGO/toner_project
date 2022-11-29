@@ -15,6 +15,7 @@ class CreatePrinterModelsTable extends Migration
     {
         Schema::create('printer_models', function (Blueprint $table) {
             $table->id();
+            $table->string('printer_model_name');
             $table->timestamps();
         });
     }

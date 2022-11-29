@@ -15,6 +15,7 @@ class CreateTonerModelsTable extends Migration
     {
         Schema::create('toner_models', function (Blueprint $table) {
             $table->id();
+            $table->string('toner_model_name');
             $table->timestamps();
         });
     }
