@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PrinterCategory;
 
 class PrinterCategoryController extends Controller
 {
@@ -13,7 +14,9 @@ class PrinterCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $printerCategories = PrinterCategory::all();
+
+        return view('printer.category.index',compact('printerCategories'));
     }
 
     /**
@@ -21,9 +24,14 @@ class PrinterCategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $category= new PrinterCategory();
+        $category->printer_category_name = $request->name;
+        $category->save();
+        return view('printer.category.create');
+        
+        
     }
 
     /**

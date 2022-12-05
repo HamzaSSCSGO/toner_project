@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
@@ -13,7 +14,10 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        $colors= Color::all();
+        
+        /* dd($colors->toArray()); */
+        return view('color.index',compact('colors'));
     }
 
     /**
@@ -21,9 +25,14 @@ class ColorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        /* dd($request); */
+        $color = new Color();
+        $color->color_name = $request->name;
+        $color->save();
+
+        return view('color.create');
     }
 
     /**
@@ -79,6 +88,10 @@ class ColorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* dd($id); */
+        $color=Color::find($id);
+        /* dd($color, $id); */ 
+        $color->delete();
+        return redirect('/index-color'); 
     }
 }

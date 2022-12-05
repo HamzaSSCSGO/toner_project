@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TonerModel;
 use Illuminate\Http\Request;
 
 class TonerModelController extends Controller
@@ -13,7 +14,10 @@ class TonerModelController extends Controller
      */
     public function index()
     {
-        //
+        $tonerModels= TonerModel::all();
+        /* $colorsArray=$colors->toArray(); */
+        /* dd($tonerModel); */
+        return view('toner_model.index',compact('tonerModels'));
     }
 
     /**
@@ -21,9 +25,14 @@ class TonerModelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $model = new TonerModel();
+        $model->toner_model_name = $request->name;
+        /* $model->quantity=$request->quantity; */
+        $model->save();
+
+        return view('toner_model.create');
     }
 
     /**
@@ -79,6 +88,9 @@ class TonerModelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* dd($id); */
+        $tonerModel = TonerModel::find($id);
+        $tonerModel->delete();
+        return redirect('/index-toner-model');
     }
 }

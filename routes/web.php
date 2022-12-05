@@ -1,6 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\TonerController;
+use App\Http\Controllers\PrinterController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TonerModelController;
+use App\Http\Controllers\PrinterModelController;
+use App\Http\Controllers\PrinterCategoryController;
+use App\Http\Controllers\PrinterLocationController;
+use App\Http\Controllers\TonerAssignementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -312,6 +322,191 @@ Route::group(['middleware' => ['auth']], function(){
     });
     
     Route::view('knowledgebase', 'admin.miscellaneous.knowledgebase')->name('knowledgebase');
+
+    /***********************************************************
+     * *********************************************************
+     *********************APP ROUTES****************************
+     ***********************************************************
+    ************************************************************/
+
+    /* ******************COLOR ROUTES *************************/
+
+    Route::get('/create-color', function(){
+        return view('color.create');
+    });
+    /* Route::view('create-color','color.create'); */
+
+    /* CREATE COLOR ROUTE */
+    Route::post('/create-new-color',[ColorController::class,'create'])->name('create.color');
+
+    /* INDEX COLOR ROUTE */
+    Route::get('/index-color',[ColorController::class,'index'])->name('index.color');
+
+    /* DELETE COLOR ROUTE */
+    Route::get('delete-color/{id}',[ColorController::class,'destroy'])->name('delete.color');
+
+    /* TONER MODEL ROUTES */
+    Route::get('/create-toner-model',function(){
+        return view('toner_model.create');
+    });
+
+    /* CREATE TONER MODEL ROUTE */
+    Route::post('/create-new-toner-model',[TonerModelController::class,'create'])->name('create.tonermodel');
+
+    /* INDEX TONER MODEL */
+    Route::get('/index-toner-model',[TonerModelController::class,'index'])->name('index.tonermodel');
+
+    /* DELETE TONER MODEL ROUTE */
+    Route::get('delete-toner-model/{id}',[TonerModelController::class,'destroy'])->name('delete.tonermodel');
+
+
+    /************************* TONER ROUTES ************************************/
+
+    /* LOOK FOR A SOLUTION LATER CSS DOESNT WORK*/
+    /* Route::prefix('/toner')->group(function (){
+        Route::get('create-new',[TonerController::class,'create'])->name('create.toner');
+        Route::get('/create',function(){
+            return view('toner.create');
+        });
+        
+    }); */
+    Route::get('/toner-create',function(){
+        return view('toner.create');
+    });
+    /* CREATE TONER ROUTE */
+    Route::post('/toner-create-new',[TonerController::class,'create'])->name('create.toner');
+
+    /* INDEX TONER ROUTE */
+    Route::get('/toner-index',[TonerController::class,'index'])->name('index.toner');
+
+    /* DELETE TONER ROUTE */
+    Route::get('toner-delete/{id}',[TonerController::class,'destroy'])->name('delete.toner');
+
+
+    /* ADD TONER TO EXISTANT ONES */
+    Route::get('/toner-add',function (){
+        return view('toner.add');
+    });
+    Route::post('/add-toner',[TonerController::class,'add'])->name('add.toner');
+
+
+    /* ****************************PRINTER ROUTES ****************************************/
+
+    /* LOOK FOR A SOLUTION LATER/CSS DOESNT WORK */
+    /* Route::prefix('/printer')->group(function(){
+        Route::prefix('/category')->group(function(){
+
+        });
+
+        Route::prefix('/model')->group(function(){
+
+        });
+    }); */
+
+    /* *************************** PRINTER CATEGORY ********************************** */
+
+    /* PRINTER CATEGORY CREATE VIEW */
+
+    Route::get('/printer-category-create',function(){
+        return view('printer.category.create');
+    });
+
+    /* CREATE PRINTER CATEGORY */
+
+    Route::post('/create-printer-category',[PrinterCategoryController::class,'create'])->name('create.printer-category');
+
+    /* PRINTER CATEGORY INDEX */
+    /* ADD LATER */
+    Route::get('/printer-category-index',[PrinterCategoryController::class,'index'])->name('index.printer-category');
+
+
+    /* PRINTER MODEL VIEW */
+
+    Route::get('/printer-model-create',function(){
+        return view('printer.model.create');
+    });
+
+    /* CREATE PRINTER MODEL */
+    Route::post('/create-printer-model',[PrinterModelController::class,'create'])->name('create.printer-model');
+
+    /* PRINTER MODEL INDEX */
+    /* ADD LATER */
+    Route::get('/printer-model-index',[PrinterModelController::class,'index'])->name('index.printer-model');
+
+    Route::get('/printer-model-delete/{id}',[PrinterModelController::class,'destroy'])->name('delete.printer-model');
+
+
+    /* **********************  CREATE PRINTER LOCATION  ***************************/
+
+    Route::get('/printer-location-create',function(){
+        return view('printer.location.create');
+    });
+
+    /* CREATE PRINTER LOCATION */
+    Route::post('/create-printer-location',[PrinterLocationController::class,'create'])->name('create.printer-location');
+
+    /* INDEX PRINTER LOCATION */
+    Route::get('/printer-location-index',[PrinterLocationController::class,'index'])->name('index.printer-location');
+
+    /* DELETE PRINTER LOCATION */
+    Route::get('/printer-location-delete/{id}',[PrinterLocationController::class,'destroy'])->name('delete.printer-location');
+
+    /* ******CREATE EMPLOYEES */
+    /* VIEW */
+    Route::get('/employee-create',function(){
+        return view('employee.create');
+    });
+
+    /* CREATE EMPLOYEE */
+    Route::post('/create-employee',[EmployeeController::class,'create'])->name('create.employee');
+    /* ADD Employee INDEX SHOW DELETE LATER */
+
+    /* INDEX EMPLOYEE ROUTE */
+    Route::get('/index-employee',[EmployeeController::class,'index'])->name('index.employee');
+
+    /* DELETE EMPLOYEE ROUTE */
+    Route::get('/delete-employee/{id}',[EmployeeController::class,'destroy'])->name('delete.employee');
+
+    /* ************************** PRINTER ROUTE ********************************/
+    /* CREATE PRINTER ROUTE */
+    /* VIEW */
+    Route::get('/printer-create',function(){
+        return view('printer.create');
+    });
+
+    /* CREATE PRINTER */
+    Route::post('/create-printer',[PrinterController::class,'create'])->name('create.printer');
+
+    /* INDEX PRINTER ROUTE */
+    Route::get('/index-printer',[PrinterController::class,'index'])->name('index.printer');
+
+    /* DELETE PRINTER ROUTE */
+    Route::get('/delete-printer/{id}',[PrinterController::class,'destroy'])->name('delete.printer');
+
+    /* *******************************************************************
+    **********************************************************************
+    ************************ TONER ASSIGNEMENT ROUTES ********************
+    **********************************************************************
+    **********************************************************************/
+
+    /* CREATE ASSIGNEMENT VIEW */
+    Route::get('assignement-create',function(){
+        return view('assignement.create');
+    });
+
+    /* ASSIGNEMENT INDEX */
+    Route::get('assignement-index',[TonerAssignementController::class,'index'])->name('index.assignement');
+
+    /* CREATE ASSIGNEMENT ROUTE */
+    Route::post('create-assignement',[TonerAssignementController::class,'create'])->name('create.toner-assignement');
+
+    /* ASSIGNEMENT DATE PICKER  */
+    Route::get('assignement-date-range',function(){
+        return view('assignement.check-date-range');
+    });
+
+    Route::post('testpicker',[TestController::class,'test'])->name('test.testcontroller');
+
 });
 
     Route::view('login', 'admin.authentication.login')->name('login');

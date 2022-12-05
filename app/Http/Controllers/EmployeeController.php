@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -13,7 +14,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::all();
+
+        return view('employee.index',compact('employees'));
     }
 
     /**
@@ -21,9 +24,14 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $employee = new Employee();
+        $employee->employee_name = $request->name;
+        $employee->matricule = $request->matricule;
+        $employee->save();
+        return view('employee.create');
+        
     }
 
     /**
@@ -79,6 +87,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee=Employee::find($id);
+        $employee->delete();
+
+        return redirect('/index-employee');
     }
 }

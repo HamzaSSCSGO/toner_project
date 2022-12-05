@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PrinterLocation;
 
 class PrinterLocationController extends Controller
 {
@@ -13,7 +14,8 @@ class PrinterLocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations=PrinterLocation::all();
+        return view('printer.location.index',compact('locations'));
     }
 
     /**
@@ -21,9 +23,16 @@ class PrinterLocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        /* dd($request); */
+        $location = new PrinterLocation();
+        /* dd($location); */
+        $location->printer_location_name = $request->name;
+        /* dd($location->location_name); */
+        $location->save();
+        return view('printer.location.create');
+        
     }
 
     /**
@@ -79,6 +88,9 @@ class PrinterLocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $printerLocation = PrinterLocation::find($id);
+        $printerLocation->delete();
+
+        return redirect('/printer-location-index');
     }
 }

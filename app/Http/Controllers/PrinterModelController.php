@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PrinterModel;
 use Illuminate\Http\Request;
 
 class PrinterModelController extends Controller
@@ -13,7 +14,9 @@ class PrinterModelController extends Controller
      */
     public function index()
     {
-        //
+        $printerModels = PrinterModel::all();
+
+        return view('printer.model.index',compact('printerModels'));
     }
 
     /**
@@ -21,9 +24,14 @@ class PrinterModelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $model= new PrinterModel();
+        $model->printer_model_name = $request->name;
+        $model->save();
+        return view('printer.model.create');
+
+        
     }
 
     /**
@@ -79,6 +87,9 @@ class PrinterModelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $printerModel=PrinterModel::find($id);
+        $printerModel->delete();
+
+        return redirect('/printer-model-index');
     }
 }
