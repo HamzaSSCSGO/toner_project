@@ -32,7 +32,7 @@ $employees= Employee::all();
 
 @extends('layouts.admin.master')
 
-@section('title')Printer
+@section('title')Create Assignement
  {{ $title }}
 @endsection
 

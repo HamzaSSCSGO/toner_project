@@ -1,82 +1,247 @@
 
 
-<?php $__env->startSection('title'); ?>Color Grid Table
+<?php $__env->startSection('title'); ?>Ajax
  <?php echo e($title); ?>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('css'); ?>
-<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/jsgrid.css')); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('assets/css/datatables.css')); ?>">
 <?php $__env->stopPush(); ?>
 
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?>
 		<?php $__env->slot('breadcrumb_title'); ?>
-			<h3>Color Grid Table</h3>
+			<h3>Ajax DataTables</h3>
 		<?php $__env->endSlot(); ?>
-		
+		<li class="breadcrumb-item">Tables</li>
+		<li class="breadcrumb-item">Data Tables</li>
+		<li class="breadcrumb-item active">AJAX</li>
 	<?php echo $__env->renderComponent(); ?>
 	
 	<div class="container-fluid">
 	    <div class="row">
+	        <!-- Ajax data source array start-->
 	        <div class="col-sm-12">
 	            <div class="card">
-	                <div class="card-header pb-0">
-	                    <h5>Basic Scenario</h5>
-	                    <span>Grid with filtering, editing, inserting, deleting, sorting and paging. Data provided by controller.</span>
+	                <div class="card-header">
+	                    <h5>Ajax Data Source (Arrays)</h5>
+	                    <span>The example below shows DataTables loading data for a table from arrays as the data source, where the structure of the row's data source in this example is:</span>
 	                </div>
 	                <div class="card-body">
-	                    <div id="basicScenario"></div>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="col-sm-12">
-	            <div class="card">
-	                <div class="card-header pb-0">
-	                    <h5>Sorting Scenario</h5>
-	                    <span>Sorting can be done not only with column header interaction, but also with sort method.</span>
-	                </div>
-	                <div class="card-body">
-	                    <div class="sort-panel mb-3">
-	                        <label>
-	                            Sorting Field:
-	                            <select class="btn btn-primary dropdown-toggle btn-sm" id="sortingField">
-	                                <option>Name</option>
-	                                <option>Age</option>
-	                                <option>Address</option>
-	                                <option>Country</option>
-	                                <option>Married</option>
-	                            </select>
-	                        </label>
-	                        <div class="d-inline">
-	                            <button class="btn btn-sm btn-secondary" id="sort" type="button">Sort</button>
-	                        </div>
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="ajax-data-array">
+	                            <thead>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </tfoot>
+	                        </table>
 	                    </div>
-	                    <div class="js-shorting" id="sorting-table"></div>
 	                </div>
 	            </div>
 	        </div>
+	        <!-- Ajax data source array end-->
+	        <!-- Ajax data source array start-->
 	        <div class="col-sm-12">
 	            <div class="card">
-	                <div class="card-header pb-0">
-	                    <h5>Batch Delete</h5>
-	                    <span>
-	                        Cell content of every column can be customized with itemTemplate, headerTemplate, filterTemplate and insertTemplate functions specified in field config. This example shows how to implement batch deleting with custom
-	                        field for selecting items.
-	                    </span>
+	                <div class="card-header">
+	                    <h5>Ajax data source (Objects)</h5>
+	                    <span>The example below shows DataTables loading data for a table from arrays as the data source, where the structure of the row's data source in this example is:</span>
 	                </div>
 	                <div class="card-body">
-	                    <div id="batchDelete"></div>
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="ajax-data-object">
+	                            <thead>
+	                                <tr>
+										<th>id</th>
+										<th>color</th>
+	                                    
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+										<th>id</th>
+										<th>color</th>
+	                                    
+	                                </tr>
+	                            </tfoot>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- Ajax data source array end-->
+	        <!-- Ajax  Nested object data start-->
+	        <div class="col-sm-12">
+	            <div class="card">
+	                <div class="card-header">
+	                    <h5>Nested object data (objects)</h5>
+	                    <span>The example below shows DataTables loading data for a table from arrays as the data source, where the structure of the row's data source in this example is:</span>
+	                </div>
+	                <div class="card-body">
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="ajax-data-nested-object">
+	                            <thead>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </tfoot>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- Ajax Nested object data end-->
+	        <!-- Ajax Orthogonal data start-->
+	        <div class="col-sm-12">
+	            <div class="card">
+	                <div class="card-header">
+	                    <h5>Orthogonal data</h5>
+	                    <span>In this example the Ajax source returns an array of objects, which DataTables uses to display the table. The structure of the row's data source in this example is:</span>
+	                </div>
+	                <div class="card-body">
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="orthogonal-data">
+	                            <thead>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </tfoot>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- Ajax Orthogonal data end-->
+	        <!-- Ajax Generated content for a column start-->
+	        <div class="col-sm-12">
+	            <div class="card">
+	                <div class="card-header">
+	                    <h5>Generated content for a column</h5>
+	                    <span>In some tables you might wish to have some content generated automatically.</span>
+	                </div>
+	                <div class="card-body">
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="auto-generate-content">
+	                            <thead>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </tfoot>
+	                        </table>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <!-- Ajax Generated content for a column end-->
+	        <!-- Ajax Deferred rendering for speed start-->
+	        <div class="col-sm-12">
+	            <div class="card">
+	                <div class="card-header">
+	                    <h5>Deferred rendering for speed</h5>
+	                    <span>The example below shows DataTables with deferred rendering enabled. For this small example you'll likely notice no difference, but larger tables can benefit significantly from simply enabling this parameter.</span>
+	                </div>
+	                <div class="card-body">
+	                    <div class="table-responsive">
+	                        <table class="display datatables" id="render-datatable">
+	                            <thead>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </thead>
+	                            <tfoot>
+	                                <tr>
+	                                    <th>Name</th>
+	                                    <th>Position</th>
+	                                    <th>Office</th>
+	                                    <th>Age</th>
+	                                    <th>Start date</th>
+	                                    <th>Salary</th>
+	                                </tr>
+	                            </tfoot>
+	                        </table>
+	                    </div>
 	                </div>
 	            </div>
 	        </div>
 	    </div>
 	</div>
+
+	<script>
+		window.colors = '<?php echo $colorsJson ?>';
+		window.col = '<?php echo $colors ?>';
+	
+	</script>
 	
 	<?php $__env->startPush('scripts'); ?>
-	<script src="<?php echo e(asset('assets/js/jsgrid/jsgrid.min.js')); ?>"></script>`
-    <script src="<?php echo e(asset('assets/js/jsgrid/griddata.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/jsgrid/jsgrid.js')); ?>"></script>
+	<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/datatable/datatables/colordata.custom.js')); ?>"></script> 
 	<?php $__env->stopPush(); ?>
 
 <?php $__env->stopSection(); ?>

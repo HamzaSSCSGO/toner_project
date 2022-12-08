@@ -1,22 +1,23 @@
-@extends('layouts.admin.master')
 
-@section('title')Styling Tables
- {{ $title }}
-@endsection
 
-@push('css')
-@endpush
+<?php $__env->startSection('title'); ?>Styling Tables
+ <?php echo e($title); ?>
 
-@section('content')
-	@component('components.breadcrumb')
-		@slot('breadcrumb_title')
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('css'); ?>
+<?php $__env->stopPush(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<?php $__env->startComponent('components.breadcrumb'); ?>
+		<?php $__env->slot('breadcrumb_title'); ?>
 			<h3>Bootstrap Styling Tables</h3>
-		@endslot
+		<?php $__env->endSlot(); ?>
 		<li class="breadcrumb-item">Tables</li>
 		<li class="breadcrumb-item">Bootstrap Tables</li>
 		<li class="breadcrumb-item active">Styling Tables</li>
-	@endcomponent
-	{{-- {{dd($assignements)}} --}}
+	<?php echo $__env->renderComponent(); ?>
+	
 	<div class="container-fluid">
 		<div class="row">
 			
@@ -49,21 +50,21 @@
 										</tr>
 									</thead>
 									<tbody>
-                                        @foreach($assignements as $assignement)
+                                        <?php $__currentLoopData = $assignements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assignement): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         
                                             <tr>
-                                                <td>{{$assignement->assignement_id}}</td>
-                                                <td>{{$assignement->serial_number}}</td>
-                                                <td>{{$assignement->printer_model_name}}</td>
-                                                <td>{{$assignement->printer_category_name}}</td>
-                                                <td>{{$assignement->toner_model_name}}</td>
-                                                <td>{{$assignement->color_name}}</td>
-                                                <td>{{$assignement->employee_name}}</td>
-                                                <td>{{$assignement->quantity_assigned}}</td>
-                                                <td>{{$assignement->creation}}</td>
+                                                <td><?php echo e($assignement->assignement_id); ?></td>
+                                                <td><?php echo e($assignement->serial_number); ?></td>
+                                                <td><?php echo e($assignement->printer_model_name); ?></td>
+                                                <td><?php echo e($assignement->printer_category_name); ?></td>
+                                                <td><?php echo e($assignement->toner_model_name); ?></td>
+                                                <td><?php echo e($assignement->color_name); ?></td>
+                                                <td><?php echo e($assignement->employee_name); ?></td>
+                                                <td><?php echo e($assignement->quantity_assigned); ?></td>
+                                                <td><?php echo e($assignement->creation); ?></td>
                                                 <td>Actions</td>
                                             </tr>
-										@endforeach
+										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 										
 									</tbody>
@@ -78,7 +79,8 @@
 		</div>
 	</div>	
 	
-	@push('scripts')
-	@endpush
+	<?php $__env->startPush('scripts'); ?>
+	<?php $__env->stopPush(); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\1projet3wa\laravel\vihoadmin-10\viho_html_laravel\Viho-Laravel-8\theme\resources\views/assignement/index.blade.php ENDPATH**/ ?>

@@ -40,7 +40,7 @@
                                             <div class="mb-3 row">
                                                 <label class="col-sm-3 col-form-label">Toner Model</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" name="name" type="text" placeholder="Add ne toner model here" />
+                                                    <input class="form-control" name="name" type="text" placeholder="Add new toner model here" />
                                                 </div>
                                             </div>
                                             {{-- <div class="mb-3 row">

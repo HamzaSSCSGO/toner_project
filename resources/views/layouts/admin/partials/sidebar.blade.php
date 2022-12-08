@@ -127,7 +127,7 @@
                             </li>
 
                             <li><a href="assignement-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                            <li><a href="assignement-index" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                            <li><a href="{{route('index.assignement')}}" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
                             <li><a href="assignement-date-range" {{-- class="{{routeActive('index')}}" --}}>Date Picker</a></li>
                         </ul>
                     </li>

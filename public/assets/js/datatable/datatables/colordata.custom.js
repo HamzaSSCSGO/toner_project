@@ -1,3 +1,23 @@
+
+let col = window.col
+let colors = JSON.parse(window.colors)
+let scolors = JSON.stringify(window.colors)
+let ncolors = window.colors
+// console.log(typeof ncolors)
+// console.log('Type: ', typeof colors);
+// console.log('Contents: ', colors)
+// console.log(scolors)
+
+let color= {
+    data : col
+}
+
+/* let cols = col.replace(""\"", ''); */
+
+console.log(col)
+console.log(color)
+
+
 $(document).ready(function() {
     $('product-list').DataTable();
     // Basic table example 
@@ -437,14 +457,15 @@ $(document).ready(function() {
         "ajax": "../assets/ajax/arrays.txt",
     });
     //Ajax Data Source (Arrays) start 
+    
     //Ajax Data Source (object) start             
     $('#ajax-data-object').DataTable({
-        "ajax": "../assets/ajax/object.txt",
+        "ajax": "../assets/ajax/colorobject.txt"/* color */,
         "columns": [{
-            "data": "name"
+            "data": "id"
         }, {
-            "data": "position"
-        }, {
+            "data": "color_name"
+        }/* , {
             "data": "office"
         }, {
             "data": "extn"
@@ -452,7 +473,7 @@ $(document).ready(function() {
             "data": "start_date"
         }, {
             "data": "salary"
-        }]
+        } */]
     });
     //Ajax Data Source (object) end 
     //Ajax nested object data start 

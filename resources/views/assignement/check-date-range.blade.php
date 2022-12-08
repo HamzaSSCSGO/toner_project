@@ -1,6 +1,6 @@
 @extends('layouts.admin.master')
 
-@section('title')Color
+@section('title')Check Dates
  {{ $title }}
 @endsection
 

@@ -1,0 +1,18 @@
+{
+  "data": [
+    {
+      
+      "id": "0",
+      "color_name": "black"
+    },
+    {
+      "id": "1",
+      "color_name": "red"
+    },
+    {
+      "id": "3",
+      "color_name": "yellow"
+    }
+    
+  ]
+}

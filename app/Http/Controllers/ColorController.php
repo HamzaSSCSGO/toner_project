@@ -15,9 +15,12 @@ class ColorController extends Controller
     public function index()
     {
         $colors= Color::all();
+        $colorsJson = json_encode($colors);
+        /* dd($colors); */
+        /* dd($colorsJson); */
         
         /* dd($colors->toArray()); */
-        return view('color.index',compact('colors'));
+        return view('color.index',compact('colors','colorsJson'));
     }
 
     /**

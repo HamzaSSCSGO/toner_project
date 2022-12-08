@@ -36,7 +36,7 @@ class TonerAssignementController extends Controller
                             ->join('colors','toners.color_id','=','colors.id')
                             ->join('toner_models','toners.toner_model_id','=','toner_models.id')
 
-                            ->paginate(10);
+                            ->get();
 
         /* dd($assignements); */
         

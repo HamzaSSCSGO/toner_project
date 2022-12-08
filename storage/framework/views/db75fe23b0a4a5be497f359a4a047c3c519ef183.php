@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('title'); ?>Color
+<?php $__env->startSection('title'); ?>Check Dates
  <?php echo e($title); ?>
 
 <?php $__env->stopSection(); ?>

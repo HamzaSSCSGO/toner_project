@@ -123,7 +123,7 @@
                             </li>
 
                             <li><a href="assignement-create" >Create</a></li>
-                            <li><a href="assignement-index" >Index</a></li>
+                            <li><a href="<?php echo e(route('index.assignement')); ?>" >Index</a></li>
                             <li><a href="assignement-date-range" >Date Picker</a></li>
                         </ul>
                     </li>

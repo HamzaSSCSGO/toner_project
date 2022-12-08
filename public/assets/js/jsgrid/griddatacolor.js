@@ -20,7 +20,10 @@
             this.clients.splice(clientIndex, 1);
         }
     };
+    /* console.log(db) */
     window.db = db;
+    console.log(window.colors)
+    /* console.log(window.db) */
     db.countries = [
         { Name: "India", Id: 0 },
         { Name: "United States", Id: 1 },
