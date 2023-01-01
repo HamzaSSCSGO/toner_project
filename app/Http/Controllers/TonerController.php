@@ -38,10 +38,18 @@ class TonerController extends Controller
     {
         /* dd($request); */
         /* dd($request->color); */
+
+        $input = $request->all();
+        $destination_path = 'public/storage/toner';
+        $image= $request->file('image');
+        $image_name = $image->getClientOriginalName();
+        $path = $request->file('image')->storeAs($destination_path,$image_name);
+
         $toner = new Toner();
         $toner->color_id = $request->color;
         $toner->toner_model_id = $request->tonerModel;
         $toner->quantity_left=$request->quantity;
+        $toner->toner_image = $image_name;
         $toner->save(); 
         return view('toner.create');
     }

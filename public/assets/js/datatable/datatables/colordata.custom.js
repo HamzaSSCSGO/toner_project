@@ -6,7 +6,55 @@ let ncolors = window.colors
 // console.log(typeof ncolors)
 // console.log('Type: ', typeof colors);
 // console.log('Contents: ', colors)
-// console.log(scolors)
+console.log(col)
+console.log(colors)
+
+let datacolor = [
+    
+    {
+        
+        "id": "0",
+        "color_name": "black",
+        "user_name" : "mjid"
+      },
+      {
+        "id": "1",
+        "color_name": "red",
+        "user_name" : "kbir"
+      },
+      {
+        "id": "3",
+        "color_name": "yellow",
+        "user_name" : "bjit"
+      },
+      {
+        "id": "4",
+        "color_name": "cyan",
+        "user_name" : "tang"
+      }
+
+    
+]
+
+/* let datacolor = {
+    "data": [
+      {
+        
+        "id": "0",
+        "color_name": "black"
+      },
+      {
+        "id": "1",
+        "color_name": "red"
+      },
+      {
+        "id": "3",
+        "color_name": "yellow"
+      }
+      
+    ]
+  }; */
+  console.log(datacolor);
 
 let color= {
     data : col
@@ -14,8 +62,8 @@ let color= {
 
 /* let cols = col.replace(""\"", ''); */
 
-console.log(col)
-console.log(color)
+/* console.log(col) */
+/* console.log(color) */
 
 
 $(document).ready(function() {
@@ -458,22 +506,16 @@ $(document).ready(function() {
     });
     //Ajax Data Source (Arrays) start 
     
-    //Ajax Data Source (object) start             
+    //Ajax Data Source (object) start              
     $('#ajax-data-object').DataTable({
-        "ajax": "../assets/ajax/colorobject.txt"/* color */,
+        /* "ajax": "../assets/ajax/colorobject.txt" */data : colors,
         "columns": [{
             "data": "id"
         }, {
             "data": "color_name"
-        }/* , {
-            "data": "office"
-        }, {
-            "data": "extn"
-        }, {
-            "data": "start_date"
-        }, {
-            "data": "salary"
-        } */]
+        },{
+            "data": "created_at"
+        }]
     });
     //Ajax Data Source (object) end 
     //Ajax nested object data start 

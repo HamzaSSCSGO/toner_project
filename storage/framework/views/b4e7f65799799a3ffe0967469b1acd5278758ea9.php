@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('title'); ?>Color
+<?php $__env->startSection('title'); ?>Model
  <?php echo e($title); ?>
 
 <?php $__env->stopSection(); ?>
@@ -11,7 +11,7 @@
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?> 
 		<?php $__env->slot('breadcrumb_title'); ?>
-			<h3>Printer Category</h3>
+			<h3>Printer Model</h3>
 		<?php $__env->endSlot(); ?>
 		<li class="breadcrumb-item">Printer</li>
 		<li class="breadcrumb-item">Model</li>

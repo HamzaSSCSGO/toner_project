@@ -49,7 +49,7 @@
         </script>
 
     @push('scripts')    
-        <script src="{{asset('assets/js/chart/apex-chart/moment.min.js')}}"></script>
+        <script src="{{asset('assets/js/chart/apex-chart/moment.min.js')}}"></script> 
         <script src="{{asset('assets/js/chart/apex-chart/apex-chart.js')}}"></script>
         <script src="{{asset('assets/js/chart/apex-chart/stock-prices.js')}}"></script>
         <script src="{{asset('assets/js/prism/prism.min.js')}}"></script>

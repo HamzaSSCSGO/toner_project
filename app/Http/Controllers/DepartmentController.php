@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
-
-        return view('employee.index',compact('employees'));
+        //
     }
 
     /**
@@ -26,14 +24,12 @@ class EmployeeController extends Controller
      */
     public function create(Request $request)
     {
-        /* dd($request); */
-        $employee = new Employee();
-        $employee->employee_name = $request->name;
-        $employee->department_id = $request->department;
-        $employee->matricule = $request->matricule;
-        $employee->save();
-        return view('employee.create');
-        
+        $department = new Department();
+        $department->department_name = $request->department_name;
+        $department->department_manager = $request->department_manager;
+        $department->save();
+
+        return view('department.create');
     }
 
     /**
@@ -89,9 +85,6 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        $employee=Employee::find($id);
-        $employee->delete();
-
-        return redirect('/index-employee');
+        //
     }
 }

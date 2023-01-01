@@ -21,6 +21,7 @@ class CreatePrintersTable extends Migration
             $table->integer('printer_location_id');
             $table->integer('printer_model_id');
             $table->integer('printer_category_id');
+            $table->string('printer_image');
             $table->timestamps();
         });
     }

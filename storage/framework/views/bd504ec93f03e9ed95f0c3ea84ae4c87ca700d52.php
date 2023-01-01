@@ -8,6 +8,13 @@
 <?php $__env->startPush('css'); ?>
 <?php $__env->stopPush(); ?>
 
+<?php 
+use App\Models\Department;
+
+$departments = Department::all();
+
+?>
+
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?> 
 		<?php $__env->slot('breadcrumb_title'); ?>
@@ -36,26 +43,32 @@
                                             <div class="mb-3 row">
                                                 <label class="col-sm-3 col-form-label">Employee Name</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" name="name" type="text" placeholder="Which color do you want to add?" />
+                                                    <input class="form-control" name="name" type="text" placeholder="employee name?" />
                                                 </div>
+                                                
+                                                
+                                            </div>
+
+                                            <div class="mb-3 row">
                                                 
                                                 <label class="col-sm-3 col-form-label">Employee Matricule</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" name="matricule" type="text" placeholder="Which color do you want to add?" />
+                                                    <input class="form-control" name="matricule" type="text" placeholder="matricule?" />
                                                 </div>
                                             </div>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
+
+                                            <div class="mb-3 row">
+                                                <label class="col-sm-3 col-form-label">Department</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-select btn-pill digits" name="department" id="exampleFormControlSelect7" >
+                                                        <option selected>SELECT A DEPARTMENT</option>
+                                                        <?php $__currentLoopData = $departments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $department): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <option value="<?php echo e($department['id']); ?>" name="department"><?php echo e($department['department_name']); ?></option>                          
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
+                                                    </select>
+                                                </div>
+                                                
+                                            </div>
                                             
                                         </div>
                                     </div>

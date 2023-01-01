@@ -33,12 +33,25 @@ class PrinterController extends Controller
     public function create(Request $request)
     {
         /* dd($request); */
+        $input = $request->all();
+
+        /* dd($input); */
+
+        $destination_path = 'public/storage/printer';
+        $image= $request->file('image');
+        /* dd($image); */
+        $image_name = $image->getClientOriginalName();
+        /* dd($image_name); */
+        $path = $request->file('image')->storeAs($destination_path,$image_name);
+        /* dd($path); */
+
         $printer = new Printer();
         $printer->serial_number =  $request->serialNumber;
         $printer->ip = $request->ip;
         $printer->printer_location_id = $request->printerLocation;
         $printer->printer_model_id = $request->printerModel;
         $printer->printer_category_id = $request->printerCategory;
+        $printer->printer_image = $image_name;
         $printer->save();
 
         return view('printer.create');

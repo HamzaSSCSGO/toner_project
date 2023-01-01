@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        TonerAssignement::factory(1000)->create();
+        /* TonerAssignement::factory(1000)->create(); */
         // \App\Models\User::factory(10)->create();
         $this->call(LaratrustSeeder::class);
         

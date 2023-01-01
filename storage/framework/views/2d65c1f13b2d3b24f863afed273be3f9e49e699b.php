@@ -1,6 +1,6 @@
 
 
-<?php $__env->startSection('title'); ?>Printers Index
+<?php $__env->startSection('title'); ?>Styling Tables
  <?php echo e($title); ?>
 
 <?php $__env->stopSection(); ?>
@@ -9,19 +9,19 @@
 <?php $__env->stopPush(); ?>
 
 <?php 
-    use App\Models\Printer;
+    use App\Models\Toner;
 
-    $printers = Printer::all();
+    $toners = Toner::all();
 ?>
 
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?>
 		<?php $__env->slot('breadcrumb_title'); ?>
-			<h3>Printers Index</h3>
+			<h3>Bootstrap Styling Tables</h3>
 		<?php $__env->endSlot(); ?>
 		<li class="breadcrumb-item">Tables</li>
-		<li class="breadcrumb-item">Printers</li>
-		<li class="breadcrumb-item active">Index</li>
+		<li class="breadcrumb-item">Bootstrap Tables</li>
+		<li class="breadcrumb-item active">Styling Tables</li>
 	<?php echo $__env->renderComponent(); ?>
 	
 	<div class="container-fluid">
@@ -30,7 +30,7 @@
 			<div class="col-sm-12">
 				<div class="card">
 					<div class="card-header">
-						<h5>Printers</h5>
+						<h5>Toners</h5>
 						
 					</div>
 					<div class="card-block row">
@@ -41,18 +41,16 @@
 										<tr>
 											
                                             <th scope="col">Image</th>
-                                            <th scope="col">ip</th>
+                                            <th scope="col">Quantity</th>
                                             
 										</tr>
 									</thead>
 									<tbody>
-                                        <?php $__currentLoopData = $printers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $printer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                        
+                                        <?php $__currentLoopData = $toners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $toner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         
                                             <tr>
-                                                <td><img height="50px" src="<?php echo e(asset('storage/storage/printer/'.$printer->printer_image)); ?>"> </td>
-                                                <td><?php echo e($printer->ip); ?></td>
+                                                <td><img height="50px" src="<?php echo e(asset('storage/storage/toner/' .$toner->toner_image)); ?>"></td>
+                                                <td><?php echo e($toner->quantity_left); ?></td>
                                                 
                                                 
                                             </tr>
@@ -75,4 +73,4 @@
 	<?php $__env->stopPush(); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\1projet3wa\laravel\vihoadmin-10\viho_html_laravel\Viho-Laravel-8\theme\resources\views/printer/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\1projet3wa\laravel\vihoadmin-10\viho_html_laravel\Viho-Laravel-8\theme\resources\views/toner/index.blade.php ENDPATH**/ ?>

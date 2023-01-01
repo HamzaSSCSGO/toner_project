@@ -19,6 +19,7 @@ class CreateTonersTable extends Migration
             $table->foreignId('color_id')->constrained('colors')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('toner_model_id')->constrained('toner_models')->onUpdate('cascade')->onDelete('cascade')  /* integer('toner_model_id') */;
             $table->integer('quantity_left');
+            $table->string('toner_image');
             $table->timestamps();
         });
     }

@@ -37,7 +37,7 @@ $printerLocations= PrinterLocation::all();
                             <div class="card-header pb-0">
                                 <h5>ADD PRINTER </h5>
                             </div>
-                            <form class="form theme-form" method="POST" action="<?php echo e(route('create.printer')); ?>">
+                            <form class="form theme-form" method="POST" action="<?php echo e(route('create.printer')); ?>" enctype="multipart/form-data" >
                                 <?php echo csrf_field(); ?>
                                 <div class="card-body">
                                     <div class="row">
@@ -63,10 +63,10 @@ $printerLocations= PrinterLocation::all();
                                                 <div class="col-sm-9">
                                                     <select class="form-select btn-pill digits" name="printerModel" id="exampleFormControlSelect7" >
                                                         <option selected>SELECT A MODEL</option>
-                                                        <?php $__currentLoopData = $printerModels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $printerModel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php $__currentLoopData = $printerModels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $printerModel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <option value="<?php echo e($printerModel['id']); ?>" name="<?php echo e($printerModel['printer_model_name']); ?>"><?php echo e($printerModel['printer_model_name']); ?></option>
                                                         
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> 
                                                     </select>
                                                 </div>
                                                 
@@ -99,19 +99,13 @@ $printerLocations= PrinterLocation::all();
                                                 
                                             </div>
 
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
+                                            <div class="mb-3 row">
+                                                <label class="col-sm-3 col-form-label">Upload Image</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="file" name="image" />
+                                                </div>
+                                            </div>
+
                                             
                                         </div>
                                     </div>

@@ -23,11 +23,11 @@
 			<div class="col-sm-12">
 				<div class="card">
 					<div class="card-header">
-						<h5>Table head options With Primary Background</h5>
-						<span>
+						<h5>Toner Assignements</h5>
+						{{-- <span>
 							Use background classes<code>.bg-*</code>and <code>table-primary</code>,<code>table-secondary</code>,<code>table-success</code>,<code>table-danger</code> ,<code>table-info</code>,<code>table-warning</code> to make
 							custom <code>thead</code> background. You can also use Stack Admin color palette classes for background.
-						</span>
+						</span> --}}
 					</div>
 					<div class="card-block row">
 						<div class="col-sm-12 col-lg-12 col-xl-12">

@@ -36,7 +36,7 @@ $tonerModels= TonerModel::all();
                             <div class="card-header pb-0">
                                 <h5>ADD TONER </h5>
                             </div>
-                            <form class="form theme-form" method="POST" action="<?php echo e(route('create.toner')); ?>">
+                            <form class="form theme-form" method="POST" action="<?php echo e(route('create.toner')); ?>" enctype="multipart/form-data" >
                                 <?php echo csrf_field(); ?>
                                 <div class="card-body">
                                     <div class="row">
@@ -72,21 +72,20 @@ $tonerModels= TonerModel::all();
                                                     <input class="form-control digits" type="number" placeholder="Quantity" name="quantity"/>
                                                 </div>
                                             </div>
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
-                                            
+
+                                            <div class="mb-3 row">
+                                                <label class="col-sm-3 col-form-label">Upload Image</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" type="file" name="image" />
+                                                </div>
+                                            </div>
+
                                             
                                             
                                         </div>
                                     </div>
+
+                                    
                                 </div>
                                 <div class="card-footer text-end">
                                     <div class="col-sm-9 offset-sm-3">

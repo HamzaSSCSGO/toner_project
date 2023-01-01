@@ -17,7 +17,8 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('employee_name');
             $table->integer('matricule');
-            /* $table->text('image'); */
+            $table->foreignId('department_id')->constrained('departments')->onUpdate('cascade')->onDelete('cascade');
+            /* $table->text('employee_image'); */
             $table->timestamps();
         });
     }

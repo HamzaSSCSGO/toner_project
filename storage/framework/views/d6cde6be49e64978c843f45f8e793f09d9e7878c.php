@@ -32,7 +32,7 @@ $employees= Employee::all();
 
 
 
-<?php $__env->startSection('title'); ?>Printer
+<?php $__env->startSection('title'); ?>Create Assignement
  <?php echo e($title); ?>
 
 <?php $__env->stopSection(); ?>

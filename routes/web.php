@@ -6,6 +6,8 @@ use App\Http\Controllers\ColorController;
 use App\Http\Controllers\TonerController;
 use App\Http\Controllers\PrinterController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TonerModelController;
 use App\Http\Controllers\PrinterModelController;
 use App\Http\Controllers\PrinterCategoryController;
@@ -451,6 +453,18 @@ Route::group(['middleware' => ['auth']], function(){
     /* DELETE PRINTER LOCATION */
     Route::get('/printer-location-delete/{id}',[PrinterLocationController::class,'destroy'])->name('delete.printer-location');
 
+    /* ******CREATE DEPARTMENTS */
+    /* VIEW */
+    Route::get('/department-create',function(){
+        return view('department.create');
+    });
+
+    /* CREATE DEPARTMENT */
+    Route::post('/create-department',[DepartmentController::class,'create'])->name('create.department');
+
+    /* INDEX DEPARTMENT ROUTE */
+    Route::get('/index-department',[DepartmentController::class,'index'])->name('index.department');
+
     /* ******CREATE EMPLOYEES */
     /* VIEW */
     Route::get('/employee-create',function(){
@@ -506,6 +520,17 @@ Route::group(['middleware' => ['auth']], function(){
     });
 
     Route::post('testpicker',[TestController::class,'test'])->name('test.testcontroller');
+
+    /* NEW DASHBOARD PAGE */
+
+    /* Route::get('dashboard-test', function(){
+        return view('dashb');
+    }); */
+
+    Route::get('dashboard2',[DashboardController::class,'index']);
+
+
+
 
 });
 
