@@ -53,7 +53,7 @@ class PrinterModelController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -64,7 +64,9 @@ class PrinterModelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $printerModel = PrinterModel::find($id);
+
+        return view('printer.model.update',compact('printerModel'));
     }
 
     /**
@@ -76,7 +78,12 @@ class PrinterModelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $printerModel = PrinterModel::find($id);
+        $printerModel->printer_model_name = $request->name;
+
+        $printerModel->save();
+
+        return redirect('printer-model-index');
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\TonerModelController;
 use App\Http\Controllers\PrinterModelController;
+use App\Http\Controllers\CriticalValueController;
 use App\Http\Controllers\PrinterCategoryController;
 use App\Http\Controllers\PrinterLocationController;
 use App\Http\Controllers\TonerAssignementController;
@@ -25,13 +26,13 @@ use App\Http\Controllers\TonerAssignementController;
 |
 */
 
-Route::get('/authen', function () {
+/* Route::get('/authen', function () {
     return view('welcome');
 });
 
 Route::get('/dash', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard'); */
 
 require __DIR__.'/auth.php';
 
@@ -48,7 +49,9 @@ Route::group(['middleware' => ['auth']], function(){
     Route::view('sample-page', 'admin.pages.sample-page')->name('sample-page');
     
     Route::prefix('dashboard')->group(function () {
-        Route::view('/', 'admin.dashboard.default')->name('index');
+        /* Route::view('/', 'admin.dashboard.default')->name('index'); */
+        Route::get('/',[DashboardController::class,'index'])->name('index');
+        /* Route::view('/', 'admin.dashboard.default')->name('index'); */
         Route::view('default', 'admin.dashboard.default')->name('dashboard.index');
     });
 
@@ -359,7 +362,13 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/index-toner-model',[TonerModelController::class,'index'])->name('index.tonermodel');
 
     /* DELETE TONER MODEL ROUTE */
-    Route::get('delete-toner-model/{id}',[TonerModelController::class,'destroy'])->name('delete.tonermodel');
+    Route::get('delete-toner-model/{id}',[TonerModelController::class,'destroy'])->name('delete.toner-model');
+
+    /* EDIT TONER MODEL ROUTE */
+    Route::get('toner-model-edit/{id}',[TonerModelController::class,'edit'])->name('edit.toner-model');
+
+    /* UPDATE TONER MODEL ROUTE */
+    Route::put('toner-model-update/{id}',[TonerModelController::class,'update'])->name('update.toner-model');
 
 
     /************************* TONER ROUTES ************************************/
@@ -383,6 +392,12 @@ Route::group(['middleware' => ['auth']], function(){
 
     /* DELETE TONER ROUTE */
     Route::get('toner-delete/{id}',[TonerController::class,'destroy'])->name('delete.toner');
+
+    /* EDIT TONER ROUTE */
+    Route::get('toner-edit/{id}',[TonerController::class,'edit'])->name('edit.toner');
+
+    /* UPDATE TONER ROUTE */
+    Route::put('toner-update/{id}',[TonerController::class,'update'])->name('update.toner');
 
 
     /* ADD TONER TO EXISTANT ONES */
@@ -437,6 +452,12 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/printer-model-delete/{id}',[PrinterModelController::class,'destroy'])->name('delete.printer-model');
 
+    /* EDIT TONER ROUTE */
+    Route::get('printer-model-edit/{id}',[PrinterModelController::class,'edit'])->name('edit.printer-model');
+
+    /* UPDATE TONER ROUTE */
+    Route::put('printer-model-update/{id}',[PrinterModelController::class,'update'])->name('update.printer-model');
+
 
     /* **********************  CREATE PRINTER LOCATION  ***************************/
 
@@ -453,6 +474,12 @@ Route::group(['middleware' => ['auth']], function(){
     /* DELETE PRINTER LOCATION */
     Route::get('/printer-location-delete/{id}',[PrinterLocationController::class,'destroy'])->name('delete.printer-location');
 
+    /* EDIT TONER ROUTE */
+    Route::get('printer-location-edit/{id}',[PrinterLocationController::class,'edit'])->name('edit.printer-location');
+
+    /* UPDATE TONER ROUTE */
+    Route::put('printer-location-update/{id}',[PrinterLocationController::class,'update'])->name('update.printer-location');
+
     /* ******CREATE DEPARTMENTS */
     /* VIEW */
     Route::get('/department-create',function(){
@@ -464,6 +491,16 @@ Route::group(['middleware' => ['auth']], function(){
 
     /* INDEX DEPARTMENT ROUTE */
     Route::get('/index-department',[DepartmentController::class,'index'])->name('index.department');
+
+    /* DELETE DEPARTMENT */
+    Route::get('delete-department/{id}',[DepartmentController::class,'destroy'])->name('delete.department');
+
+    /* EDIR DEPARTMENT */
+    Route::get('edit-department/{id}',[DepartmentController::class,'edit'])->name('edit.department');
+
+    /* UPDATE DEPARTMENT */
+    Route::put('update-department/{id}',[DepartmentController::class,'update'])->name('update.department');
+
 
     /* ******CREATE EMPLOYEES */
     /* VIEW */
@@ -481,6 +518,12 @@ Route::group(['middleware' => ['auth']], function(){
     /* DELETE EMPLOYEE ROUTE */
     Route::get('/delete-employee/{id}',[EmployeeController::class,'destroy'])->name('delete.employee');
 
+    /* EDIR DEPARTMENT */
+    Route::get('edit-employee/{id}',[EmployeeController::class,'edit'])->name('edit.employee');
+
+    /* UPDATE DEPARTMENT */
+    Route::put('update-employee/{id}',[EmployeeController::class,'update'])->name('update.employee');
+
     /* ************************** PRINTER ROUTE ********************************/
     /* CREATE PRINTER ROUTE */
     /* VIEW */
@@ -496,6 +539,12 @@ Route::group(['middleware' => ['auth']], function(){
 
     /* DELETE PRINTER ROUTE */
     Route::get('/delete-printer/{id}',[PrinterController::class,'destroy'])->name('delete.printer');
+
+    /* EDIT PRINTER ROUTE */
+    Route::get('printer-edit/{id}',[PrinterController::class,'edit'])->name('edit.printer');
+
+    /* UPDATE PRINTER ROUTE */
+    Route::put('printer-update/{id}',[PrinterController::class,'update'])->name('update.printer');
 
     /* *******************************************************************
     **********************************************************************
@@ -514,6 +563,15 @@ Route::group(['middleware' => ['auth']], function(){
     /* CREATE ASSIGNEMENT ROUTE */
     Route::post('create-assignement',[TonerAssignementController::class,'create'])->name('create.toner-assignement');
 
+    /* DELETE ASSIGNEMENT */
+    Route::get('delete-assignement/{id}',[TonerAssignementController::class,'destroy'])->name('delete.assignement');
+
+    /* EDIT ASSIGNEMENT */
+    Route::get('edit-assignement/{id}',[TonerAssignementController::class,'edit'])->name('edit.toner-assignement');
+
+    /* UPDATE ASSIGNEMENT */
+    Route::put('update-assignement/{id}',[TonerAssignementController::class,'update'])->name('update.toner-assignement');
+
     /* ASSIGNEMENT DATE PICKER  */
     Route::get('assignement-date-range',function(){
         return view('assignement.check-date-range');
@@ -527,7 +585,17 @@ Route::group(['middleware' => ['auth']], function(){
         return view('dashb');
     }); */
 
-    Route::get('dashboard2',[DashboardController::class,'index']);
+    Route::get('dashboard2',[DashboardController::class,'index'])->name('dash-index');
+
+    Route::get('/logout',[LogoutController::class,'perform'])->name('logout');
+
+    /* MINIMUM TONERE QUANTITY PAGES */
+
+    Route::get('critical-value',function(){
+        return view('minimum-tonere.minimum-tonere');
+    });
+
+    Route::post('critical-value-update',[CriticalValueController::class,'store'])->name('minimum-update');
 
 
 

@@ -66,7 +66,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::find($id);
+
+        return view('employee.update',compact('employee'));
     }
 
     /**
@@ -78,7 +80,12 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $employee = Employee::find($id);
+        $employee->employee_name = $request->employee_name;
+        $employee->matricule = $request->matricule;
+        $employee->save();
+
+        return redirect('/index-employee');
     }
 
     /**

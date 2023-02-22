@@ -7,11 +7,7 @@
 @push('css')
 @endpush
 
-<?php 
-    use App\Models\Printer;
 
-    $printers = Printer::all();
-?>
 
 @section('content')
 	@component('components.breadcrumb')
@@ -37,12 +33,20 @@
 							<div class="table-responsive">
 								<table class="table">
 									<thead class="bg-primary">
+										
 										<tr>
-											
-                                            <th scope="col">Image</th>
-                                            <th scope="col">ip</th>
-                                            
-										</tr>
+                                               
+                                            <th scope="col">id</th>
+											<th scope="col">Name</th>
+											<th scope="col">Image</th>
+                                            <th scope="col">Printer Serial Number</th>
+                                            <th scope="col">IP Address</th>
+                                            <th scope="col">Printer Model</th>
+                                            <th scope="col">Printer Category</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">Actions</th>
+
+                                           </tr>
 									</thead>
 									<tbody>
                                         @foreach($printers as $printer)
@@ -50,8 +54,16 @@
                                         {{-- {{dd($printer->printer_image)}} --}}
                                         
                                             <tr>
+												<td>{{$printer['printer_id']}}</td>
+												<td>{{$printer['printer_name']}}</td>
                                                 <td><img height="50px" src="{{asset('storage/storage/printer/'.$printer->printer_image)}}"> {{-- {{$printer->printer_image}} --}}</td>
-                                                <td>{{$printer->ip}}</td>
+                                                <td>{{$printer['serial_number']}}</td>
+												<td>{{$printer['ip']}}</td>
+                                               <td>{{$printer['printer_model_name']}}</td>
+                                               <td>{{$printer['printer_category_name']}}</td>
+                                               <td>{{$printer['printer_location_name']}}</td>
+											   <td><a class="btn btn-danger btn-lg" href="{{route('delete.printer',$printer['printer_id'])}}">    <span class="icon-close"></span> Delete</a> 
+												<a class="btn btn-primary btn-lg" data-original-title="btn btn-danger btn-xs" href="{{route('edit.printer',$printer->printer_id)}}" > {{-- <span class="icon-edit"> --}}</span>Edit</a></td>
                                                 
                                                 
                                             </tr>

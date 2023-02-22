@@ -25,10 +25,7 @@
 	        <!-- Ajax data source array start-->
 	        <div class="col-sm-12">
 	            <div class="card">
-	                <div class="card-header">
-	                    <h5>Ajax data source (Objects)</h5>
-	                    <span>The example below shows DataTables loading data for a table from arrays as the data source, where the structure of the row's data source in this example is:</span>
-	                </div>
+	                
 	                <div class="card-body">
 	                    <div class="table-responsive">
 	                        <table class="display datatables" id="ajax-data-object">
@@ -65,7 +62,7 @@
 	
 	<?php $__env->startPush('scripts'); ?>
 	<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/js/datatable/datatables/colordata.custom.js')); ?>"></script> 
+    <script src="<?php echo e(asset('assets/js/datatable/datatables/colordata.custom.js')); ?>"></script>  
 	<?php $__env->stopPush(); ?>
 
 <?php $__env->stopSection(); ?>

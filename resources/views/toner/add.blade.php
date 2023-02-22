@@ -19,9 +19,14 @@
     <?php 
         use App\Models\TonerModel;
         use App\Models\Color;
+        use App\Models\Toner;
 
         $colors=Color::all();
         $tonerModels= TonerModel::all();
+        $toners=Toner::select('toners.id as toner_id','toner_model_name','toner_model_id','color_name','color_id','quantity_left')
+            ->join('toner_models','toners.toner_model_id','=','toner_models.id')
+            ->join('colors','toners.color_id','=','colors.id')
+            ->get();
 
     ?>
 
@@ -40,7 +45,7 @@
                                     <div class="row">
                                         <div class="col">
                                             
-                                            <div class="mb-3 row">
+                                            {{-- <div class="mb-3 row">
                                                 <label class="col-sm-3 col-form-label">Color</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-select btn-pill digits" name="color" id="exampleFormControlSelect7" >
@@ -66,7 +71,20 @@
                                                     </select>
                                                 </div>
                                                 
-                                            </div> 
+                                            </div> --}} 
+                                            <div class="mb-3 row">
+                                                <label class="col-sm-3 col-form-label">Toner</label>
+                                                <div class="col-sm-9">
+                                                    <select class="form-select btn-pill digits" name="toner" id="exampleFormControlSelect7" >
+                                                        <option selected>SELECT TONER MODEL</option>
+                                                        @foreach($toners as $toner)
+                                                        <option value="{{$toner->toner_id}}" name="{{$toner->toner_model_name}}">{{$toner->toner_model_name}} , {{$toner->color_name}}</option>
+                                                        
+                                                        @endforeach   
+                                                    </select>
+                                                </div>
+                                                
+                                            </div>
 
                                             <div class="mb-3 row">
                                                 <label class="col-sm-3 col-form-label">Quantity</label>

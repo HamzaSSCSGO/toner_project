@@ -14,7 +14,7 @@ class PrinterController extends Controller
      */
     public function index()
     {
-        $printers = Printer::select('printers.id as printer_id','serial_number','ip','printer_location_id','printer_location_name','printer_category_id','printer_category_name','printer_model_id','printer_model_name')
+        $printers = Printer::select('printers.id as printer_id','serial_number','ip','printer_location_id','printer_location_name','printer_category_id','printer_category_name','printer_model_id','printer_model_name','printer_image','printer_name')
                             ->join('printer_locations','printers.printer_location_id','=','printer_locations.id')
                             ->join('printer_categories','printers.printer_category_id','=','printer_categories.id')
                             ->join('printer_models','printers.printer_model_id','=','printer_models.id')
@@ -46,6 +46,7 @@ class PrinterController extends Controller
         /* dd($path); */
 
         $printer = new Printer();
+        $printer->printer_name = $request->printer_name;
         $printer->serial_number =  $request->serialNumber;
         $printer->ip = $request->ip;
         $printer->printer_location_id = $request->printerLocation;
@@ -87,7 +88,9 @@ class PrinterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $printer = Printer::find($id);
+        /* dd($printer); */
+        return view('printer.update',compact('printer'));
     }
 
     /**
@@ -99,7 +102,24 @@ class PrinterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $printer = Printer::find($id);
+        /* dd($printer); */
+        $printer->printer_name = $request->printer_name;
+        $printer->serial_number =  $request->serialNumber;
+        $printer->ip = $request->ip;
+
+        if($request->hasFile('image')){
+            $destination_path = 'public/storage/printer';
+            $image= $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path,$image_name);
+            $printer->printer_image = $image_name;
+
+        }
+        $printer->save();
+
+        return redirect('/index-printer');
+
     }
 
     /**

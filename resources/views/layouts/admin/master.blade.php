@@ -40,7 +40,7 @@
           <!-- Container-fluid Ends-->
         </div>
         <!-- footer start-->
-        <footer class="footer">
+        {{-- <footer class="footer">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-6 footer-copyright">
@@ -51,7 +51,7 @@
               </div>
             </div>
           </div>
-        </footer>
+        </footer> --}}
       </div>
     </div>
     <!-- latest jquery-->

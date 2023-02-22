@@ -1,12 +1,17 @@
-<div class="page-main-header">
+{{-- @push('css')
+@endpush --}}
+<div class="page-main-header"> 
   <div class="main-header-right row m-0">
     <div class="main-header-left">
       {{-- logo img --}}
-      <div class="logo-wrapper"><a href="{{ route('index') }}"><img class="img-fluid" src="{{asset('assets/images/logo/logo.png')}}" alt=""></a></div>
-      <div class="dark-logo-wrapper"><a href="{{ route('index') }}"><img class="img-fluid" src="{{asset('assets/images/logo/dark-logo.png')}}" alt=""></a></div>
+      {{-- <div class="logo-wrapper"><a href="{{ route('index') }}"><img class="img-fluid" src="{{asset('assets/images/logo/logo.png')}}" alt=""></a></div>
+      <div class="dark-logo-wrapper"><a href="{{ route('index') }}"><img class="img-fluid" src="{{asset('assets/images/logo/dark-logo.png')}}" alt=""></a></div> --}}
+      <div class="logo-wrapper" ><a href="{{ route('dash-index') }}"><img style="height:40px; width:auto;" class="img-fluid" src="{{asset('assets/images/logo/tam.png')}}" alt=""></a></div>
+
       <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle">    </i></div>
+
     </div>
-    <div class="left-menu-header col">
+    {{-- <div class="left-menu-header col">
       <ul>
         <li>
           <form class="form-inline search-form">
@@ -17,11 +22,11 @@
           <span class="d-sm-none mobile-search search-bg"><i class="fa fa-search"></i></span>
         </li>
       </ul>
-    </div>
+    </div> --}}
     <div class="nav-right col pull-right right-menu p-0">
       <ul class="nav-menus">
         <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
-        <li class="onhover-dropdown">
+        {{-- <li class="onhover-dropdown">
           <div class="bookmark-box"><i data-feather="star"></i></div>
           <div class="bookmark-dropdown onhover-show-div">
             <div class="form-group mb-0">
@@ -81,11 +86,14 @@
               </div>
             </li>
           </ul>
-        </li>
+        </li> --}}
         <li>
             <div class="mode"><i class="fa fa-moon-o"></i></div>
         </li>
-        <li class="onhover-dropdown">
+        <li><a class="text-dark"  href="/toner-index" data-bs-trigger="hover" data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Toners List" ><i data-feather="droplet"></i></a></li>
+        <li><a class="text-dark" href="/index-printer" data-bs-trigger="hover" data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Printers List" ><i data-feather="printer"></i></a></li>
+        <li><a class="text-dark " href="{{route('index.assignement')}}" data-bs-trigger="hover" data-container="body" data-bs-toggle="popover" data-bs-placement="bottom" title="Assignements List" ><i data-feather="archive"></i></a></li>
+        {{-- <li class="onhover-dropdown">
           <i data-feather="message-square"></i>
           <ul class="chat-dropdown onhover-show-div">
             <li>
@@ -120,7 +128,7 @@
             </li>
             <li class="text-center"> <a class="f-w-700" href="javascript:void(0)">See All     </a></li>
           </ul>
-        </li>
+        </li> --}}
 
         {{-- <form method="POST" action="{{route('logout')}}">
           @csrf
@@ -131,7 +139,7 @@
         <form method="POST" action="{{route('logout')}}">
           @csrf
           <li class="onhover-dropdown p-0">
-            <button class="btn btn-primary-light" {{-- href="/logout" --}} type="button" {{-- href="{{route('logout')}}" --}}><i data-feather="log-out"></i>Log out</button>
+            <button class="btn btn-primary-light" {{-- href="/logout" --}} type="submit" {{-- href="{{route('logout')}}" --}}><i data-feather="log-out"></i>Log out</button>
           </li>
         </form>
         

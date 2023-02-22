@@ -65,7 +65,9 @@ class PrinterLocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $printerLocation = PrinterLocation::find($id);
+
+        return view('printer.location.update',compact('printerLocation'));
     }
 
     /**
@@ -77,7 +79,11 @@ class PrinterLocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $printerLocation = PrinterLocation::find($id);
+        $printerLocation->printer_location_name = $request->name;
+        $printerLocation->save();
+
+        return redirect('printer-location-index');
     }
 
     /**

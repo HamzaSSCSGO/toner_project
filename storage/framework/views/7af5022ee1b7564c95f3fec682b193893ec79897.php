@@ -17,21 +17,21 @@
                     </li>
 
                     <li >
-                        <a href = "/dashboard-test">Dashboard
+                        <a href = "/dashboard2"><i data-feather="home"></i><span>Dashboard</span>
                             
                         </a>
                         
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title <?php echo e(prefixActive('/create-color')); ?>" href="javascript:void(0)"><i data-feather="home"></i><span>Toner</span></a>                  
+                        <a class="nav-link menu-title <?php echo e(prefixActive('/create-color')); ?>" href="javascript:void(0)"><i data-feather="droplet"></i><span>Toner</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: <?php echo e(prefixBlock('/create-color')); ?>;">
                             <li>
                                 <a class="submenu-title  <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : ''); ?>" href="javascript:void(0)">
                                     Color<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/create-color" >Create</a></li>
-                                    <li><a href="/index-color" >Index</a></li>
+                                    <li><a href="/create-color" >Create Colors</a></li>
+                                    <li><a href="/index-color" >List Colors</a></li>
                                 </ul>
                             </li>
 
@@ -40,14 +40,14 @@
                                     Model<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/create-toner-model" >Create</a></li>
-                                    <li><a href="/index-toner-model" >Index</a></li>
+                                    <li><a href="/create-toner-model" >Create Toner Models</a></li>
+                                    <li><a href="/index-toner-model" >List Toner Models</a></li>
                                 </ul>
                             </li>
 
-                            <li><a href="/toner-create" >Create</a></li>
-                            <li><a href="/toner-index" >Index</a></li>
-                            <li><a href="/toner-add" >Add Toner</a></li>
+                            <li><a href="/toner-create" >Create Toner</a></li>
+                            <li><a href="/toner-index" >List Toners</a></li>
+                            <li><a href="/toner-add" >Add Toner Quantity</a></li>
                             
                         </ul>
                     </li>
@@ -57,15 +57,15 @@
                     
                     
                     <li class="dropdown">
-                        <a class="nav-link menu-title <?php echo e(prefixActive('/dashboard')); ?>" href="javascript:void(0)"><i data-feather="home"></i><span>Printer</span></a>                  
+                        <a class="nav-link menu-title <?php echo e(prefixActive('/dashboard')); ?>" href="javascript:void(0)"><i data-feather="printer"></i><span>Printer</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: <?php echo e(prefixBlock('/dashboard')); ?>;">
                             <li>
                                 <a class="submenu-title  <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : ''); ?>" href="javascript:void(0)">
                                     Category<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/printer-category-create" >Create</a></li>
-                                    <li><a href="/printer-category-index" >Index</a></li>
+                                    <li><a href="/printer-category-create" >Create Printer Category</a></li>
+                                    <li><a href="/printer-category-index" >List Printer Category</a></li>
                                 </ul>
                             </li>
 
@@ -74,8 +74,8 @@
                                     Model<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/printer-model-create" >Create</a></li>
-                                    <li><a href="/printer-model-index" >Index</a></li>
+                                    <li><a href="/printer-model-create" >Create Printer Model</a></li>
+                                    <li><a href="/printer-model-index" >List Printer Models</a></li>
                                 </ul>
                             </li>
                             
@@ -84,12 +84,12 @@
                                     Location<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/printer-location-create" >Create</a></li>
-                                    <li><a href="/printer-location-index" >Index</a></li>
+                                    <li><a href="/printer-location-create" >Create Location</a></li>
+                                    <li><a href="/printer-location-index" >List Locations</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/printer-create" >Create</a></li>
-                            <li><a href="/index-printer" >Index</a></li>
+                            <li><a href="/printer-create" >Create New Printer</a></li>
+                            <li><a href="/index-printer" >List Printers</a></li>
                         </ul>
                     </li>
                     
@@ -98,15 +98,15 @@
 
                     
                     <li class="dropdown">
-                        <a class="nav-link menu-title <?php echo e(prefixActive('/dashboard')); ?>" href="javascript:void(0)"><i data-feather="home"></i><span>Assignement</span></a>                  
+                        <a class="nav-link menu-title <?php echo e(prefixActive('/dashboard')); ?>" href="javascript:void(0)"><i data-feather="archive"></i><span>Assignement</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: <?php echo e(prefixBlock('/dashboard')); ?>;">
                             <li>
                                 <a class="submenu-title  <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : ''); ?>" href="javascript:void(0)">
                                     Department<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/department-create" >Create</a></li>
-                                    <li><a href="/index-department" >Index</a></li>
+                                    <li><a href="/department-create" >Create Department</a></li>
+                                    <li><a href="/index-department" >List Departments</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -114,14 +114,25 @@
                                     Employee<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: <?php echo e(in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none'); ?>;">
-                                    <li><a href="/employee-create" >Create</a></li>
-                                    <li><a href="/index-employee" >Index</a></li>
+                                    <li><a href="/employee-create" >Create new Employee</a></li>
+                                    <li><a href="/index-employee" >List Employees</a></li>
                                 </ul>
                             </li>
 
-                            <li><a href="assignement-create" >Create</a></li>
-                            <li><a href="<?php echo e(route('index.assignement')); ?>" >Index</a></li>
-                            <li><a href="assignement-date-range" >Date Picker</a></li>
+                            <li><a href="assignement-create" >Create Assignement</a></li>
+                            <li><a href="<?php echo e(route('index.assignement')); ?>" >List Assignements</a></li>
+                            <li><a href="assignement-date-range" >Date range Picker</a></li>
+                        </ul>
+                    </li>
+
+                    
+                    <li class="dropdown">
+                        <a class="nav-link menu-title <?php echo e(prefixActive('/dashboard')); ?>" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings</span></a>                  
+                        <ul class="nav-submenu menu-content" style="display: <?php echo e(prefixBlock('/dashboard')); ?>;">
+                            
+
+                            <li><a href="critical-value" >Minimal Toner Value</a></li>
+                            
                         </ul>
                     </li>
                     

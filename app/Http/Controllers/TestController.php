@@ -106,28 +106,13 @@ class TestController extends Controller
         /* dd($tonerProductionResult1); */
 
 
-        /* toner moins 1 an */
-
-        $startDate1= Carbon::now()->subYear();
-        $endDate1 = Carbon::now();
-        $tonerProduction1an = TonerAssignement::/* select('toner_assignements.created_at as creation','toner_assignements.id as assignement_id','quantity_assigned','printer_id','printer_category_id') */
-                            select(DB::raw("SUM(toner_assignements.quantity_assigned) as count"),DB::raw("CONCAT_WS('-',YEAR(toner_assignements.created_at),MONTH(toner_assignements.created_at)) as monthyear")
-                            ,DB::raw("COUNT(toner_assignements.id) as number"))
-                            ->join('printers','toner_assignements.printer_id','=','printers.id')
-                            ->where('printer_category_id',2)
-                            ->whereBetween('toner_assignements.created_at',[$startDate1 ,$endDate1 ])
-                            ->groupBy('monthyear')
-                            ->get();
         
-        $tonerProductionResult1an= json_encode($tonerProduction1an);
-
-        /* dd($tonerProductionResult1an); */
 
         /* dd($tonerProductionResult1,$tonerAdministrationResult1); */
 
         /* dd($tonerProductionResult, $tonerAdministrationResult); */
         
-        return view('assignement.assignement-chart',compact('tonerResult','tonerAdministrationResult1','tonerProductionResult','tonerProductionResult1','tonerProductionResult1an'));
+        return view('assignement.assignement-chart',compact('tonerResult','tonerAdministrationResult1','tonerProductionResult','tonerProductionResult1'));
     }
     /**
      * Display a listing of the resource.

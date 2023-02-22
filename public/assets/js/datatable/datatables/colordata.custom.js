@@ -513,8 +513,6 @@ $(document).ready(function() {
             "data": "id"
         }, {
             "data": "color_name"
-        },{
-            "data": "created_at"
         }]
     });
     //Ajax Data Source (object) end 

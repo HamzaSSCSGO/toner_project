@@ -36,21 +36,21 @@
                     </li>
 
                     <li >
-                        <a href = "/dashboard-test">Dashboard
+                        <a href = "/dashboard2"><i data-feather="home"></i><span>Dashboard</span>
                             
                         </a>
                         
                     </li>
                     <li class="dropdown">
-                        <a class="nav-link menu-title {{ prefixActive('/create-color') }}" href="javascript:void(0)"><i data-feather="home"></i><span>Toner</span></a>                  
+                        <a class="nav-link menu-title {{ prefixActive('/create-color') }}" href="javascript:void(0)"><i data-feather="droplet"></i><span>Toner</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('/create-color') }};">
                             <li>
                                 <a class="submenu-title  {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : '' }}" href="javascript:void(0)">
                                     Color<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/create-color" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/index-color" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/create-color" {{-- class="{{routeActive('index')}}" --}}>Create Colors</a></li>
+                                    <li><a href="/index-color" {{-- class="{{routeActive('index')}}" --}}>List Colors</a></li>
                                 </ul>
                             </li>
 
@@ -59,14 +59,14 @@
                                     Model<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/create-toner-model" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/index-toner-model" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/create-toner-model" {{-- class="{{routeActive('index')}}" --}}>Create Toner Models</a></li>
+                                    <li><a href="/index-toner-model" {{-- class="{{routeActive('index')}}" --}}>List Toner Models</a></li>
                                 </ul>
                             </li>
 
-                            <li><a href="/toner-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                            <li><a href="/toner-index" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
-                            <li><a href="/toner-add" {{-- class="{{routeActive('index')}}" --}}>Add Toner</a></li>
+                            <li><a href="/toner-create" {{-- class="{{routeActive('index')}}" --}}>Create Toner</a></li>
+                            <li><a href="/toner-index" {{-- class="{{routeActive('index')}}" --}}>List Toners</a></li>
+                            <li><a href="/toner-add" {{-- class="{{routeActive('index')}}" --}}>Add Toner Quantity</a></li>
                             
                         </ul>
                     </li>
@@ -80,15 +80,15 @@
                         </div>
                     </li> --}}
                     <li class="dropdown">
-                        <a class="nav-link menu-title {{ prefixActive('/dashboard') }}" href="javascript:void(0)"><i data-feather="home"></i><span>Printer</span></a>                  
+                        <a class="nav-link menu-title {{ prefixActive('/dashboard') }}" href="javascript:void(0)"><i data-feather="printer"></i><span>Printer</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('/dashboard') }};">
                             <li>
                                 <a class="submenu-title  {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : '' }}" href="javascript:void(0)">
                                     Category<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/printer-category-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/printer-category-index" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/printer-category-create" {{-- class="{{routeActive('index')}}" --}}>Create Printer Category</a></li>
+                                    <li><a href="/printer-category-index" {{-- class="{{routeActive('index')}}" --}}>List Printer Category</a></li>
                                 </ul>
                             </li>
 
@@ -97,8 +97,8 @@
                                     Model<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/printer-model-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/printer-model-index" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/printer-model-create" {{-- class="{{routeActive('index')}}" --}}>Create Printer Model</a></li>
+                                    <li><a href="/printer-model-index" {{-- class="{{routeActive('index')}}" --}}>List Printer Models</a></li>
                                 </ul>
                             </li>
                             
@@ -107,12 +107,12 @@
                                     Location<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/printer-location-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/printer-location-index" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/printer-location-create" {{-- class="{{routeActive('index')}}" --}}>Create Location</a></li>
+                                    <li><a href="/printer-location-index" {{-- class="{{routeActive('index')}}" --}}>List Locations</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/printer-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                            <li><a href="/index-printer" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                            <li><a href="/printer-create" {{-- class="{{routeActive('index')}}" --}}>Create New Printer</a></li>
+                            <li><a href="/index-printer" {{-- class="{{routeActive('index')}}" --}}>List Printers</a></li>
                         </ul>
                     </li>
                     
@@ -121,15 +121,15 @@
 
                     {{-- Assignement --}}
                     <li class="dropdown">
-                        <a class="nav-link menu-title {{ prefixActive('/dashboard') }}" href="javascript:void(0)"><i data-feather="home"></i><span>Assignement</span></a>                  
+                        <a class="nav-link menu-title {{ prefixActive('/dashboard') }}" href="javascript:void(0)"><i data-feather="archive"></i><span>Assignement</span></a>                  
                         <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('/dashboard') }};">
                             <li>
                                 <a class="submenu-title  {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'active' : '' }}" href="javascript:void(0)">
                                     Department<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/department-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/index-department" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/department-create" {{-- class="{{routeActive('index')}}" --}}>Create Department</a></li>
+                                    <li><a href="/index-department" {{-- class="{{routeActive('index')}}" --}}>List Departments</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -137,14 +137,25 @@
                                     Employee<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="nav-sub-childmenu submenu-content" style="display: {{ in_array(Route::currentRouteName(), ['tab-bootstrap','tab-material']) ? 'block' : 'none' }};">
-                                    <li><a href="/employee-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                                    <li><a href="/index-employee" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
+                                    <li><a href="/employee-create" {{-- class="{{routeActive('index')}}" --}}>Create new Employee</a></li>
+                                    <li><a href="/index-employee" {{-- class="{{routeActive('index')}}" --}}>List Employees</a></li>
                                 </ul>
                             </li>
 
-                            <li><a href="assignement-create" {{-- class="{{routeActive('index')}}" --}}>Create</a></li>
-                            <li><a href="{{route('index.assignement')}}" {{-- class="{{routeActive('index')}}" --}}>Index</a></li>
-                            <li><a href="assignement-date-range" {{-- class="{{routeActive('index')}}" --}}>Date Picker</a></li>
+                            <li><a href="assignement-create" {{-- class="{{routeActive('index')}}" --}}>Create Assignement</a></li>
+                            <li><a href="{{route('index.assignement')}}" {{-- class="{{routeActive('index')}}" --}}>List Assignements</a></li>
+                            <li><a href="assignement-date-range" {{-- class="{{routeActive('index')}}" --}}>Date range Picker</a></li>
+                        </ul>
+                    </li>
+
+                    {{-- Settings --}}
+                    <li class="dropdown">
+                        <a class="nav-link menu-title {{ prefixActive('/dashboard') }}" href="javascript:void(0)"><i data-feather="settings"></i><span>Settings</span></a>                  
+                        <ul class="nav-submenu menu-content" style="display: {{ prefixBlock('/dashboard') }};">
+                            
+
+                            <li><a href="critical-value" >Minimal Toner Value</a></li>
+                            
                         </ul>
                     </li>
                     

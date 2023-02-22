@@ -49,7 +49,7 @@ prodSort.map((item)=>{
   monthyear.push(item.date.getFullYear() + '-' + (item.date.getMonth() + 1))
 })
 
-prodSort.map((item)=>{
+prodSort.map((item)=>{ 
   prodNum.push(item.num)
 })
 

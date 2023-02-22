@@ -10,8 +10,7 @@ $tonerModels= TonerModel::all();
 ?>
 @extends('layouts.admin.master')
 
-@section('title')Toner
- {{ $title }}
+@section('title')Create Toner 
 @endsection
 
 @push('css')
@@ -36,7 +35,7 @@ $tonerModels= TonerModel::all();
                                 <h5>ADD TONER </h5>
                             </div>
                             <form class="form theme-form" method="POST" action="{{route('create.toner')}}" enctype="multipart/form-data" >
-                                @csrf
+                                @csrf 
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">

@@ -41,6 +41,13 @@ $printerLocations= PrinterLocation::all();
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col">
+
+                                            <div class="mb-3 row">
+                                                <label class="col-sm-3 col-form-label">Printer Name</label>
+                                                <div class="col-sm-9">
+                                                    <input class="form-control" name="printer_name" type="text" placeholder="write the printer's name" />
+                                                </div>
+                                            </div>
                                             
 
                                             <div class="mb-3 row">

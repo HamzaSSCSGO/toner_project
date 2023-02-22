@@ -26,10 +26,11 @@ class TonerAssignementController extends Controller
                     ->get(); */
 
 
-        $assignements = TonerAssignement::select('toner_assignements.id as assignement_id','toner_assignements.created_at as creation','toner_id','printer_id','serial_number','ip','quantity_assigned','employee_id','employee_name','matricule','printer_location_id','printer_location_name','printer_model_id','printer_model_name','printer_category_id','printer_category_name','color_id','color_name','toner_model_id','toner_model_name')
+        $assignements = TonerAssignement::select('toner_assignements.id as assignement_id','toner_assignements.created_at as creation','toner_id','printer_id','serial_number','ip','quantity_assigned','employee_id','employee_name','matricule','printer_location_id','printer_location_name','printer_model_id','printer_model_name','printer_category_id','printer_category_name','printer_name','color_id','color_name','toner_model_id','toner_model_name','department_name','department_manager')
                             ->join('printers','toner_assignements.printer_id','=','printers.id')
                             ->join('toners','toner_assignements.toner_id','=','toners.id')
                             ->join('employees','toner_assignements.employee_id','=','employees.id')
+                            ->join('departments','employees.department_id','=','departments.id')
                             ->join('printer_locations','printers.printer_location_id','=','printer_locations.id')
                             ->join('printer_models','printers.printer_model_id','=','printer_models.id')
                             ->join('printer_categories','printers.printer_category_id','=','printer_categories.id')
@@ -38,9 +39,11 @@ class TonerAssignementController extends Controller
 
                             ->get();
 
-        /* dd($assignements); */
+        $assignementsj = json_encode($assignements);
+
+        /* dd($assignements[0]); */
         
-        return view('assignement.index',compact('assignements'));
+        return view('assignement.test-assignement',compact('assignements','assignementsj'));
                             
     }
 
@@ -113,7 +116,7 @@ class TonerAssignementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view('assignement.update');
     }
 
     /**
@@ -124,6 +127,14 @@ class TonerAssignementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tonerAssignement = TonerAssignement::find($id);
+        $toner = Toner::find($tonerAssignement->toner_id);
+        $quantity= $toner->quantity_left + $tonerAssignement->quantity_assigned;
+        $toner->quantity_left = $quantity;
+        $toner->save();
+        /* dd($tonerAssignement,$toner,$quantity); */
+        /* dd($toner, $id); */
+        $tonerAssignement->delete();
+        return redirect('/assignement-index');
     }
 }

@@ -11,11 +11,11 @@
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?>
 		<?php $__env->slot('breadcrumb_title'); ?>
-			<h3>Bootstrap Styling Tables</h3>
+			<h3>Toner Assignements</h3>
 		<?php $__env->endSlot(); ?>
-		<li class="breadcrumb-item">Tables</li>
-		<li class="breadcrumb-item">Bootstrap Tables</li>
-		<li class="breadcrumb-item active">Styling Tables</li>
+		<li class="breadcrumb-item">Toner</li>
+		<li class="breadcrumb-item">Assignements</li>
+		<li class="breadcrumb-item active">Index</li>
 	<?php echo $__env->renderComponent(); ?>
 	
 	<div class="container-fluid">
@@ -23,60 +23,64 @@
 			
 			<div class="col-sm-12">
 				<div class="card">
-					<div class="card-header">
-						<h5>Toner Assignements</h5>
-						
-					</div>
-					<div class="card-block row">
-						<div class="col-sm-12 col-lg-12 col-xl-12">
-							<div class="table-responsive">
-								<table class="table">
-									<thead class="bg-primary">
-										<tr>
-											
-                                            <th scope="col">Tracking ID</th>
-                                            <th scope="col">Serial Number</th>
-                                            <th scope="col">Printer Model</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Toner Model</th>
-                                            <th scope="col">Color</th>
-                                            <th scope="col">Assigned To</th>
-                                            <th scope="col">Quantity Assigned</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Actions</th>
-										</tr>
-									</thead>
-									<tbody>
-                                        <?php $__currentLoopData = $assignements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $assignement): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        
-                                            <tr>
-                                                <td><?php echo e($assignement->assignement_id); ?></td>
-                                                <td><?php echo e($assignement->serial_number); ?></td>
-                                                <td><?php echo e($assignement->printer_model_name); ?></td>
-                                                <td><?php echo e($assignement->printer_category_name); ?></td>
-                                                <td><?php echo e($assignement->toner_model_name); ?></td>
-                                                <td><?php echo e($assignement->color_name); ?></td>
-                                                <td><?php echo e($assignement->employee_name); ?></td>
-                                                <td><?php echo e($assignement->quantity_assigned); ?></td>
-                                                <td><?php echo e($assignement->creation); ?></td>
-                                                <td>Actions</td>
-                                            </tr>
-										<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
+					
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="display datatables" id="ajax-data-object">
+								<thead>
+									<tr>
+										<th scope="col">Tracking ID</th>
+										<th scope="col">Printer Name</th>
+										<th scope="col">Serial Number</th>
+										<th scope="col">IP</th>
+										<th scope="col">Printer Model</th>
+										<th scope="col">Category</th>
+										<th scope="col">Toner Model</th>
+										<th scope="col">Color</th>
+										<th scope="col">Assigned To</th>
+										<th scope="col">Department</th>
+										<th scope="col">Manager</th>
+										<th scope="col">Quantity Assigned</th>
+										<th scope="col">Date</th>
 										
-									</tbody>
-								</table>
-							</div>
+									</tr>
+								</thead>
+								<tfoot>
+									<tr>
+										<th scope="col">Tracking ID</th>
+										<th scope="col">Printer Name</th>
+										<th scope="col">Serial Number</th>
+										<th scope="col">IP</th>
+										<th scope="col">Printer Model</th>
+										<th scope="col">Category</th>
+										<th scope="col">Toner Model</th>
+										<th scope="col">Color</th>
+										<th scope="col">Assigned To</th>
+										<th scope="col">Department</th>
+										<th scope="col">Manager</th>
+										<th scope="col">Quantity Assigned</th>
+										<th scope="col">Date</th>
+										
+									</tr>
+								</tfoot>
+							</table>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 			
 		</div>
 	</div>	
+
+	<script>
+		window.assignements = '<?php echo $assignementsj ?>';
+		
+	
+	</script>
 	
 	<?php $__env->startPush('scripts'); ?>
+	<script src="<?php echo e(asset('assets/js/datatable/datatables/jquery.dataTables.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/datatable/datatables/assignements.custom.js')); ?>"></script>  
 	<?php $__env->stopPush(); ?>
 
 <?php $__env->stopSection(); ?>

@@ -8,11 +8,7 @@
 <?php $__env->startPush('css'); ?>
 <?php $__env->stopPush(); ?>
 
-<?php 
-    use App\Models\Printer;
 
-    $printers = Printer::all();
-?>
 
 <?php $__env->startSection('content'); ?>
 	<?php $__env->startComponent('components.breadcrumb'); ?>
@@ -38,12 +34,20 @@
 							<div class="table-responsive">
 								<table class="table">
 									<thead class="bg-primary">
+										
 										<tr>
-											
-                                            <th scope="col">Image</th>
-                                            <th scope="col">ip</th>
-                                            
-										</tr>
+                                               
+                                            <th scope="col">id</th>
+											<th scope="col">Name</th>
+											<th scope="col">Image</th>
+                                            <th scope="col">Printer Serial Number</th>
+                                            <th scope="col">IP Address</th>
+                                            <th scope="col">Printer Model</th>
+                                            <th scope="col">Printer Category</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">Actions</th>
+
+                                           </tr>
 									</thead>
 									<tbody>
                                         <?php $__currentLoopData = $printers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $printer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -51,8 +55,16 @@
                                         
                                         
                                             <tr>
+												<td><?php echo e($printer['printer_id']); ?></td>
+												<td><?php echo e($printer['printer_name']); ?></td>
                                                 <td><img height="50px" src="<?php echo e(asset('storage/storage/printer/'.$printer->printer_image)); ?>"> </td>
-                                                <td><?php echo e($printer->ip); ?></td>
+                                                <td><?php echo e($printer['serial_number']); ?></td>
+												<td><?php echo e($printer['ip']); ?></td>
+                                               <td><?php echo e($printer['printer_model_name']); ?></td>
+                                               <td><?php echo e($printer['printer_category_name']); ?></td>
+                                               <td><?php echo e($printer['printer_location_name']); ?></td>
+											   <td><a class="btn btn-danger btn-lg" href="<?php echo e(route('delete.printer',$printer['printer_id'])); ?>">    <span class="icon-close"></span> Delete</a> 
+												<a class="btn btn-primary btn-lg" data-original-title="btn btn-danger btn-xs" href="<?php echo e(route('edit.printer',$printer->printer_id)); ?>" > </span>Edit</a></td>
                                                 
                                                 
                                             </tr>

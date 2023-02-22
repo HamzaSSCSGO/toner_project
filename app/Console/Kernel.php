@@ -2,8 +2,10 @@
 
 namespace App\Console;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\CriticalValue;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +26,26 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        
+
+        
+        
+        
+        $schedule->command("tonere:status")->dailyAt('10:00')->timeZone('Africa/Casablanca')->when(function () {
+            $newCriticalValue = CriticalValue::all()->first()->critical_value;
+            $toners=DB::table('toners')
+                ->select('toners.id as toners_id','quantity_left','color_name','toner_model_name','color_id','toner_model_id','toner_image')
+                ->join('toner_models','toners.toner_model_id','=','toner_models.id')
+                ->join('colors','toners.color_id','=','colors.id')
+                ->where('quantity_left','<',$newCriticalValue)
+                ->get();
+            if($toners->first()){
+                return true;
+            }else{
+                return false;
+            }
+                
+            });
     }
 
     /**

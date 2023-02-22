@@ -17,7 +17,7 @@
                         @csrf
                         <h4>Login</h4>
                         <h6>Welcome back! Log in to your account.</h6>
-                        {{-- Email Address --}}
+                        {{-- Email Address --}} 
                         <div class="form-group">
                             <label>Email Address</label>
                             <div class="input-group">
@@ -30,17 +30,17 @@
                             <label>Password</label>
                             <div class="input-group">
                                 <span class="input-group-text"><i class="icon-lock"></i></span>
-                                <input class="form-control" name="password" type="password" name="login[password]" required="" placeholder="*********" />
+                                <input class="form-control" name="password" type="password"  required="" placeholder="*********" />
                                 <div class="show-hide"><span class="show"> </span></div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <div class="checkbox">
                                 <input id="checkbox1" type="checkbox" />
                                 <label for="checkbox1">Remember password</label>
                             </div>
                             <a class="link" href="{{ route('forget-password') }}">Forgot password?</a>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
                         </div>

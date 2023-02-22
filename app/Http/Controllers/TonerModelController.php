@@ -65,7 +65,9 @@ class TonerModelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tonerModel = TonerModel::find($id);
+
+        return view('toner_model.update',compact('tonerModel'));
     }
 
     /**
@@ -77,7 +79,11 @@ class TonerModelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tonerModel = TonerModel::find($id);
+        $tonerModel->toner_model_name = $request->name;
+        $tonerModel->save();
+
+        return redirect('/index-toner-model');
     }
 
     /**

@@ -20,9 +20,14 @@
     <?php 
         use App\Models\TonerModel;
         use App\Models\Color;
+        use App\Models\Toner;
 
         $colors=Color::all();
         $tonerModels= TonerModel::all();
+        $toners=Toner::select('toners.id as toner_id','toner_model_name','toner_model_id','color_name','color_id','quantity_left')
+            ->join('toner_models','toners.toner_model_id','=','toner_models.id')
+            ->join('colors','toners.color_id','=','colors.id')
+            ->get();
 
     ?>
 
@@ -41,33 +46,20 @@
                                     <div class="row">
                                         <div class="col">
                                             
+                                             
                                             <div class="mb-3 row">
-                                                <label class="col-sm-3 col-form-label">Color</label>
+                                                <label class="col-sm-3 col-form-label">Toner</label>
                                                 <div class="col-sm-9">
-                                                    <select class="form-select btn-pill digits" name="color" id="exampleFormControlSelect7" >
-                                                        <option selected>SELECT A COLOR</option>
-                                                        <?php $__currentLoopData = $colors; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $color): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($color['id']); ?>" name="color"><?php echo e($color['color_name']); ?></option>
+                                                    <select class="form-select btn-pill digits" name="toner" id="exampleFormControlSelect7" >
+                                                        <option selected>SELECT TONER MODEL</option>
+                                                        <?php $__currentLoopData = $toners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $toner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <option value="<?php echo e($toner->toner_id); ?>" name="<?php echo e($toner->toner_model_name); ?>"><?php echo e($toner->toner_model_name); ?> , <?php echo e($toner->color_name); ?></option>
                                                         
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>     
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>   
                                                     </select>
                                                 </div>
                                                 
                                             </div>
-
-                                            <div class="mb-3 row">
-                                                <label class="col-sm-3 col-form-label">Toner Model</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-select btn-pill digits" name="tonerModel" id="exampleFormControlSelect7" >
-                                                        <option selected>SELECT A MODEL</option>
-                                                        <?php $__currentLoopData = $tonerModels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tonerModel): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($tonerModel['id']); ?>" name="tonerModel"><?php echo e($tonerModel['toner_model_name']); ?></option>
-                                                        
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
-                                                    </select>
-                                                </div>
-                                                
-                                            </div> 
 
                                             <div class="mb-3 row">
                                                 <label class="col-sm-3 col-form-label">Quantity</label>
