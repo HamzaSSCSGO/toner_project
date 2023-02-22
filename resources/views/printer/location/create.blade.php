@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
-@section('title')Color
- {{ $title }}
+@section('title')Printer Location
+ 
 @endsection
 
 @push('css')

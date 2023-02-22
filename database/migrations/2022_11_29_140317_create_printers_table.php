@@ -19,9 +19,9 @@ class CreatePrintersTable extends Migration
             $table->string('ip');
             $table->string('printer_name');
             /* $table->integer('toner_consumption')->nullable(); */
-            $table->integer('printer_location_id');
-            $table->integer('printer_model_id');
-            $table->integer('printer_category_id');
+            $table->foreignId('printer_location_id')->constrained('printer_locations')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('printer_model_id')->constrained('printer_models')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('printer_category_id')->constrained('printer_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->string('printer_image');
             $table->timestamps();
         });

@@ -1,8 +1,7 @@
 
 
-<?php $__env->startSection('title'); ?>Color
- <?php echo e($title); ?>
-
+<?php $__env->startSection('title'); ?>Printer Location
+ 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('css'); ?>
